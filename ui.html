@@ -1,0 +1,24 @@
+<div style="font-family: sans-serif; padding: 10px;">
+  <h3 style="margin-top: 0;">Làm tròn Pixel</h3>
+  <label for="multiple" style="font-size: 13px;">Chọn bội số:</label>
+  <select id="multiple" style="margin-top: 5px; padding: 5px; width: 100%; margin-bottom: 15px;">
+    <option value="1">1 (Làm tròn số nguyên)</option>
+    <option value="2">Chia hết cho 2</option>
+    <option value="4">Chia hết cho 4</option>
+    <option value="6">Chia hết cho 6</option>
+    <option value="8">Chia hết cho 8</option>
+    <option value="10">Chia hết cho 10</option>
+  </select>
+  <button id="apply" style="background-color: #0d99ff; color: white; border: none; padding: 8px 12px; width: 100%; border-radius: 4px; cursor: pointer; font-weight: bold;">
+    Áp Dụng
+  </button>
+</div>
+
+<script>
+  document.getElementById('apply').onclick = () => {
+    // Lấy con số mà bạn vừa chọn trong menu
+    const multiple = parseInt(document.getElementById('multiple').value, 10);
+    // Gửi lệnh cho Figma
+    parent.postMessage({ pluginMessage: { type: 'apply-perfect-pixel', multiple } }, '*');
+  }
+</script>
